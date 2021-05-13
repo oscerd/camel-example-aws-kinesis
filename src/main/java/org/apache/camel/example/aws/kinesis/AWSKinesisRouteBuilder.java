@@ -30,7 +30,7 @@ public class AWSKinesisRouteBuilder extends RouteBuilder {
         PropertiesComponent pc = getContext().getComponent("properties", PropertiesComponent.class);
         pc.setLocation("classpath:kinesis.properties");
 
-        from("aws-kinesis://stream?accessKey={{accessKey}}&secretKey={{secretKey}}&region={{region}}")
+        from("aws-kinesis://{{stream}}?accessKey={{accessKey}}&secretKey={{secretKey}}&region={{region}}")
             .log("${body}");
 
     }
